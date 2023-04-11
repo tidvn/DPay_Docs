@@ -1,28 +1,27 @@
 {
-  "name": "nextra-docs-template",
+  "name": "dpay-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "DPay document",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && npm run lint:build",
+    "build": "next build",
     "start": "next start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/tidvn/DPay_Docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "Tidvn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/tidvn/DPay_Docs"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
-    "next": "latest",
+    "next": "^13.0.6",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.11.10",
