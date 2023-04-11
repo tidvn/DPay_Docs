@@ -1,0 +1,37 @@
+---
+title: Getting started
+id: getting-started
+---
+import { Callout} from 'nextra-theme-docs'
+
+In order to use Dpay API, you need to create an account first.
+
+## Log in / Sign up
+
+![DPay landing page](/images/landing.png)
+
+When [creating a DPay account](/auth/signin) you can use your extension wallet through Eternl and Nami. With an account, you can start building your apps!
+<Callout>
+We use your wallet to login. No need to worry about losing or storing dpay passwords!
+</Callout>
+
+## Add your first mechant
+
+Once you have your account ready, you can declare your first mechant. Click on **+ ADD Mechant**, Fill in the required information, and most importantly, declare the correct wallet address to receive money from transactions. Click **SAVE** and you can see new mechant in tab **Manament**
+
+![DPay create mechant](/images/create_mechant.png)
+
+<Callout>
+Note: The wallet address must be completely correct. this is the address where you will receive money from transactions when using DPay
+</Callout>
+## Generate your mechant secret token
+Each store , we will provide 1 Secret `Token` . use it and your information to make queries with DPay later  
+to Generate It. Click **Gen Token** in your mechant in tab Manament  
+after that. one Modal will popup and show you Token once time 
+
+![DPay creating project](/images/generate_token.png)
+
+*If you lose it , there is no way to recover , please generate new*
+<Callout>
+Always keep your secrets secret! `Token` is a secret, so make sure you don't commit it to a public repository or include it in your code. When possible, use environment variables and avoid exposing `Token`. Ideally, setup your own application backend to securely store your `Token` to prevent the leakage. Otherwise, someone else could piggyback on your token.
+</Callout>

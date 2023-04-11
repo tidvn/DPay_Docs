@@ -1,0 +1,141 @@
+
+import { table} from 'nextra-theme-docs'
+
+On the merchant's payment page, after customers choose to pay with Crypto , merchant server needs to call DPay API to init new payment and response to mechant an info of payment 
+# HTTP Request
+> **POST /v1/gateway/query**  
+
+## Example Request
+```json
+{
+  "requestId": "6434e0d747286b01f83545b1",
+  "orderId": "DP21834"
+}
+```
+
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+        
+        { attr: 'requestId', type: 'String',requ: "√",desc: "Unique ID of each request" },
+        { attr: 'orderId', type: 'String',requ: "√",desc: "Partner Transaction ID" }
+       
+    ].map(item => (
+      <tr key={item.attr}>
+        <td>{item.attr}</td>
+        <td>{item.type}</td>
+        <td>{item.requ}</td>
+        <td>{item.desc}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+
+## Example Response If Payment not Paid
+you will get a response like below
+```json
+{
+    "status": 200,
+    "message": "Wait for Pay",
+    "errors": "",
+    "data": {
+        "requestId": "6434db7347286b01f83545ac",
+        "orderId": "MM1540456472575",
+        "amount": 130,
+        "message": "Wait for Pay",
+        "resultCode": 8000,
+        "payUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac",
+        "qrCodeUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac/qr",
+        "responseTime": "1681185651"
+    }
+}
+```
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+        { attr: 'status', type: 'Int',desc: "Response status" },
+        { attr: 'message', type: 'String',desc: "Response status description" },
+        { attr: 'errors', type: 'String',desc: "If response not successful , you wil get an info about error" },
+        { attr: 'requestId', type: 'String',desc: "Partner's requestId" },
+        { attr: 'orderId', type: 'String',desc: "Partner Transaction ID" },
+        { attr: 'amount', type: 'Int',desc: "Payment amount" },
+        { attr: 'message', type: 'String',desc: "Transaction status description" },
+        { attr: 'resultCode', type: 'Int',desc: "Transaction status code" },
+        { attr: 'payUrl', type: 'String',desc: "URL for switching from the partner's page to the Dpay payment page" },
+        { attr: 'qrCodeUrl', type: 'String',desc: "QR display of PayUrl" },
+        { attr: 'responseTime', type: 'String',desc: "Time to respond payment results to partner Format: timestamp" }
+    ].map(item => (
+      <tr key={item.attr}>
+        <td>{item.attr}</td>
+        <td>{item.type}</td>
+        <td>{item.desc}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## Example Response If Payment is Paid
+you will get a response like below
+```json
+{
+    "status": 200,
+    "message": "Paid",
+    "errors": "",
+    "data": {
+        "PaymentId": "6434e0d747286b01f83545b1",
+        "PartnerId": "6433bb40d4cd6eec2b33b0fb",
+        "Amount": 130,
+        "OrderId": "MC1828",
+        "ResultCode": 0,
+        "Txhash": "b1d0199cb993e66fd5230031927e507296f2c05822e0dc858897eb889de64c18",
+        "CreatedAt": "1970-01-01T00:00:00Z"
+    }
+}
+```
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+        { attr: 'status', type: 'Int',desc: "Response status" },
+        { attr: 'message', type: 'String',desc: "Response status description" },
+        { attr: 'errors', type: 'String',desc: "If response not successful , you wil get an info about error" },
+        { attr: 'PaymentId', type: 'String',desc: "DPay's paymentId" },
+        { attr: 'orderId', type: 'String',desc: "Partner Transaction ID" },
+        { attr: 'amount', type: 'Int',desc: "Payment amount" },
+        { attr: 'resultCode', type: 'Int',desc: "Transaction status code" },
+        { attr: 'Txhash', type: 'String',desc: "TXHash in Blockchain network" },
+        { attr: 'CreatedAt', type: 'String',desc: "Time at payment done" }
+    ].map(item => (
+      <tr key={item.attr}>
+        <td>{item.attr}</td>
+        <td>{item.type}</td>
+        <td>{item.desc}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

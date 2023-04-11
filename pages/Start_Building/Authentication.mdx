@@ -1,0 +1,26 @@
+
+
+## Important
+When you generate your token, you will see a modal with a API token.
+Your *API token* is an encoded of your merchant info. Be sure to keep your secret token private.
+## Connecting to the DPay API
+
+You neet a *Custom Headers* connecting to the DPay API: 
+This token must be used as an Authorization header for all your API requests in the following format:
+```js
+"Token": "YOUR_Token"
+```
+
+## Error when Token is wrong
+
+If your Token is wrong, you will get the following message after executing the query
+```json
+{
+    "status": 403,
+    "message": "Failed to process request",
+    "errors": "token signature is invalid: signature is invalid",
+    "data": null
+}
+```
+
+**How to fix**: Generate a new token
