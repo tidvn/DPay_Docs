@@ -15,23 +15,18 @@ When [creating a DPay account](/auth/signin) you can use your extension wallet t
 We use your wallet to login. No need to worry about losing or storing dpay passwords!
 </Callout>
 
-## Add your first mechant
+## Creating first API Key
 
-Once you have your account ready, you can declare your first mechant. Click on **+ ADD Mechant**, Fill in the required information, and most importantly, declare the correct wallet address to receive money from transactions. Click **SAVE** and you can see new mechant in tab **Manament**
+Once you have your account ready, you can create your first key . Click on **+ NEW API KEY``**, pick up a name, and your wallet address, and most importantly, declare the correct wallet address to receive money from transactions. Click **Submit** and a new secret API KEY, APT TOKEN is automatically generated.
 
-![DPay create mechant](/images/create_mechant.png)
+![DPay create mechant](https://i.imgur.com/kiGDGGF.png)
 
 <Callout>
 Note: The wallet address must be completely correct. this is the address where you will receive money from transactions when using DPay
 </Callout>
-## Generate your mechant secret token
-Each store , we will provide 1 Secret `Token` . use it and your information to make queries with DPay later  
-to Generate It. Click **Gen Token** in your mechant in tab Manament  
-after that. one Modal will popup and show you Token once time 
 
-![DPay creating project](/images/generate_token.png)
+![DPay creating project](https://i.imgur.com/uPhVSYA.png)
 
-*If you lose it , there is no way to recover , please generate new*
 <Callout>
 Always keep your secrets secret! `Token` is a secret, so make sure you don't commit it to a public repository or include it in your code. When possible, use environment variables and avoid exposing `Token`. Ideally, setup your own application backend to securely store your `Token` to prevent the leakage. Otherwise, someone else could piggyback on your token.
 </Callout>

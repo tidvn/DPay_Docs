@@ -11,6 +11,7 @@ On the merchant's payment page, after customers choose to pay with Crypto , merc
   "ipnUrl": "https://mechant.com/confirm/xxx",
   "redirectUrl": "https://mechant.com/done/xxx",
   "orderId": "MC1828",
+  "requestId":"RQ87213",
   "amount": 130,
   "orderInfo": "Payment in crypto."
 }
@@ -29,6 +30,7 @@ On the merchant's payment page, after customers choose to pay with Crypto , merc
   <tbody>
     {[
         { attr: 'orderId', type: 'String',requ: "√",desc: "Partner Transaction ID" },
+        { attr: 'requestId', type: 'String',requ: "√",desc: "Partner Request ID" },
         { attr: 'amount', type: 'Int',requ: "√",desc: "Amount ADA needs to be paid." },
         { attr: 'redirectUrl', type: 'String',requ: "√",desc: "A partner's URL. This URL is used to redirect from MoMo page to partner's page after customer's payment." },
         { attr: 'orderInfo', type: 'String',requ: "",desc: "Partner Order's information" },
@@ -53,14 +55,13 @@ you will get a response like below if the request is successful
     "message": "Success",
     "errors": "",
     "data": {
-        "requestId": "6434db7347286b01f83545ac",
-        "orderId": "MM1540456472575",
+        "requestId": "RQ87213",
+        "orderId": "MC1828",
         "amount": 130,
         "message": "Wait for Pay",
         "resultCode": 8000,
-        "payUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac",
-        "qrCodeUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac/qr",
-        "responseTime": "1681185651"
+        "payUrl": "https://dpay.tech/pay/64784e9c408322cf20c3cf12",
+        "responseTime": "1685606044"
     }
 }
 ```
@@ -84,7 +85,6 @@ you will get a response like below if the request is successful
         { attr: 'message', type: 'String',desc: "Transaction status description" },
         { attr: 'resultCode', type: 'Int',desc: "Transaction status code" },
         { attr: 'payUrl', type: 'String',desc: "URL for switching from the partner's page to the Dpay payment page" },
-        { attr: 'qrCodeUrl', type: 'String',desc: "QR display of PayUrl" },
         { attr: 'responseTime', type: 'String',desc: "Time to respond payment results to partner Format: timestamp" }
     ].map(item => (
       <tr key={item.attr}>
