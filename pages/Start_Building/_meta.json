@@ -2,6 +2,7 @@
 
     "Authentication": "Authentication",
     "Initiate_payment": "Initiate one payment",
+    "Processing_payment_results": "Processing payment results",
     "Transaction_status": "Check transaction status"
 }
 

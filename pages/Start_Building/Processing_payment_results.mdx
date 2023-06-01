@@ -1,0 +1,66 @@
+
+import { table} from 'nextra-theme-docs'
+
+After the customer makes a payment on the DPay, we will notify you of the payment result through 2 methods
+## Redirect
+
+Customers will be redirected from DPay's payment page to the partner's purchase page based on the redirectUrl field you passed at the time of initialization.
+
+#### Example
+```curl
+https://example.com/oder/1234
+
+```
+
+
+
+
+## IPN - Instant Payment Notification
+DPay Server will use the API declared in the ipnUrl field to send an HTTP Request with the below configuration to the partner server.
+
+> **Method: POST**  
+
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+        { attr: 'URL', type: 'ipnUrl',desc: "URL path" },
+        { attr: 'Method', type: 'POST',desc: "HTTP Request method" },
+        { attr: 'Headers', type: 'content-type: application/json',desc: "HTTP Headers" },
+        { attr: 'Payload', type: 'Refer to the parameter description table below',desc: "HTTP body content" },
+        
+    ].map(item => (
+      <tr key={item.attr}>
+        <td>{item.attr}</td>
+        <td>{item.type}</td>
+        <td>{item.desc}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+> **IPN REQUEST EXAMPLE** 
+
+```
+curl -X 'POST' 'https://example.com/ipn' -H 'content-type: application/json' -d $'{"transId":"transIdsdvas7a9d79sd7v",orderId":"012345678","requestId":"4872421","amount":1000,"transId":2588659987,"resultCode":0,"txHash":"dffsdfn96x9698f68a9sd6fn9as6fna9sfnsad9f6ds9f","createAt":"2023-06-01T12:34:56.789Z"}'
+
+```
+> **JSON EXAMPLE** 
+```json
+
+{
+  "transId": "hetshervs",
+  "amount": 100,
+  "orderId": "fdsgdgfdg",
+  "requestId": "dfgdsfgd",
+  "resultCode": 0,
+  "txHash": "432t3yt3ty45y2cy245yc425y472yt45c5vasgfagg",
+  "createAt": "2023-06-01T12:34:56.789Z"
+}
+````
