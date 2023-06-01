@@ -3,7 +3,7 @@ import { table} from 'nextra-theme-docs'
 
 On the merchant's payment page, after customers choose to pay with Crypto , merchant server needs to call DPay API to init new payment and response to mechant an info of payment 
 # HTTP Request
-> **POST /v1/gateway/query**  
+> **POST https://api.dpay.tech/v1/gateway/query**  
 
 ## Example Request
 ```json
@@ -54,8 +54,7 @@ you will get a response like below
         "amount": 130,
         "message": "Wait for Pay",
         "resultCode": 8000,
-        "payUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac",
-        "qrCodeUrl": "http://localhost:3000/pay/6434db7347286b01f83545ac/qr",
+        "payUrl": "https://dpay.tech/pay/6434db7347286b01f83545ac",
         "responseTime": "1681185651"
     }
 }
